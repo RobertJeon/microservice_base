@@ -1,13 +1,14 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
-import { MessagePattern } from '@nestjs/microservices';
+import { AppRepository } from './app.repository';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appRepository: AppRepository) {}
 
   @MessagePattern('hello')
-  getHello(): string {
-    return this.appService.getHello();
+  async getHello(@Payload() payload): Promise<any> {
+    const { user_id, password } = payload;
+    return this.appRepository.getHello(user_id, password);
   }
 }
