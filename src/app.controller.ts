@@ -7,8 +7,8 @@ export class AppController {
   constructor(private readonly appRepository: AppRepository) {}
 
   @MessagePattern('hello')
-  async getHello(@Payload() payload): Promise<any> {
-    const { user_id, password } = payload;
+  async getHello(data: any): Promise<any> {
+    const { user_id, password } = data;
     return this.appRepository.getHello(user_id, password);
   }
 }

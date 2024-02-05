@@ -12,10 +12,6 @@ To use this microservice as a starting point for a new microservice, follow thes
 
 2. Change the name of the repository to the name of the new microservice
 
-## Structure
-
-The structure of the microservice is as follows:
-
 ---
 
 ## 📌 commit, merge 규칙
